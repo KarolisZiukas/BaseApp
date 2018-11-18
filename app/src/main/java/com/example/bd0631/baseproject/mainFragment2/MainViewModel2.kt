@@ -26,7 +26,6 @@ class MainViewModel2 @Inject constructor(
             onNext = {
               post.value = it
             }
-
         )
 
   }
