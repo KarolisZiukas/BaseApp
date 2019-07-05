@@ -1,6 +1,6 @@
 package com.example.bd0631.baseproject.data.local
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import com.example.bd0631.baseproject.data.BaseModel
 import javax.inject.Inject
 import javax.inject.Singleton

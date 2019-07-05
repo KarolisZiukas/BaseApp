@@ -1,8 +1,8 @@
 package com.example.bd0631.baseproject.base
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
 class BaseRecyclerViewAdapter<T: BaseRecyclerViewItem>(private val itemsList: ArrayList<T>):
     RecyclerView.Adapter<BindingHolder>() {

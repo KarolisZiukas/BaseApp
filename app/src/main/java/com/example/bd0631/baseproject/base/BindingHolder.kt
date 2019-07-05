@@ -1,9 +1,9 @@
 package com.example.bd0631.baseproject.base
 
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.RecyclerView
 
 class BindingHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
