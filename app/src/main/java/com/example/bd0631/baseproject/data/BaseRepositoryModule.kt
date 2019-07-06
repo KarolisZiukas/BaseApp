@@ -18,6 +18,6 @@ val BaseRepositoryModule = module {
     get<AppDatabase>().baseDao()
   }
 
-  single { BaseRepositoryImpl(get()) as BaseRepository }
+  single { BaseRepositoryImpl(get(), get()) as BaseRepository } //Do not listen to IDE suggestion
 
 }

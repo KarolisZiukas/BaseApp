@@ -1,18 +1,15 @@
 package com.example.bd0631.baseproject.mainFragment2
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.bd0631.baseproject.base.BaseViewModel
 import com.example.bd0631.baseproject.data.local.BaseRepository
-import com.example.bd0631.baseproject.data.local.BaseRepositoryImpl
 import com.example.bd0631.baseproject.data.remote.Post
-import com.example.bd0631.baseproject.data.remote.PostApi
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.subscribeBy
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MainViewModel2 @Inject constructor(
-    val baseRepository: BaseRepository,
-    val postApi: PostApi
+    val baseRepository: BaseRepository
 ) : BaseViewModel() {
 
   val isLoading = MutableLiveData<Boolean>()
@@ -20,14 +17,9 @@ class MainViewModel2 @Inject constructor(
 
   fun onTextClick() {
     isLoading.value = true
-    postApi.getPosts()
-        .observeOn(AndroidSchedulers.mainThread())
-        .doFinally { isLoading.value = false }
-        .subscribeBy(
-            onNext = {
-              post.value = it
-            }
-        )
-
+    viewModelScope.launch {
+      post.value = baseRepository.getPosts()
+      isLoading.value = false
+    }
   }
 }
