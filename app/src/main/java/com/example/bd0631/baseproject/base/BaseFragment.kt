@@ -26,12 +26,8 @@ abstract class BaseFragment<T : ViewDataBinding, U : BaseViewModel> : Fragment()
     databinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
     databinding.setVariable(BR.viewModel, viewModel)
     databinding.lifecycleOwner = this
-    return databinding.root
-  }
-
-  override fun onCreate(savedInstanceState: Bundle?) {
     onObserve(viewModel)
-    super.onCreate(savedInstanceState)
+    return databinding.root
   }
 
   protected open fun onObserve(viewModel: U) {

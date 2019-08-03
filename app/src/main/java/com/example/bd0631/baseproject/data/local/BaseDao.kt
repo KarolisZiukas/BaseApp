@@ -1,6 +1,5 @@
 package com.example.bd0631.baseproject.data.local
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import com.example.bd0631.baseproject.data.BaseModel
@@ -9,6 +8,6 @@ import com.example.bd0631.baseproject.data.BaseModel
 interface BaseDao {
 
   @Query("SELECT * FROM BaseApplication")
-  fun getAllEnitities(): LiveData<List<BaseModel>>
+  suspend fun getAllEntities(): List<BaseModel>
 
 }
